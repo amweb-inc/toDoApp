@@ -125,6 +125,17 @@
             margin-left: 10px;
             background: #b7c7d0;
         }
+
+        .btn {
+            cursor: pointer;
+            font-size: .875em;
+            text-transform: uppercase;
+
+        }
+
+        btn:hover {
+            opacity: .75;
+        }
     </style>
     <!-- STYLE -->
 </head>
@@ -134,14 +145,14 @@
         <h1 class="description">MY LIST</h1>
     </header>
     <div class="wrapper">
-        <button id="toggleList" class="hide">Hide</button>
+        <button id="toggleList" class="hide btn">Hide</button>
         <!-- look into on load event to have description load as hide. -->
 
         <!-- LIST DIV -->
         <div class="list">
             <p class="description">MY LIST</p>
             <input type="text" class="description" for="changeDesc">
-            <button class="description" id="changeDesc">Change Description</button>
+            <button class="description btn" id="changeDesc">Change Description</button>
             <ul>
                 <li>My Item #1</li>
                 <li>My Item #2</li>
@@ -149,7 +160,7 @@
 
             </ul>
             <input type="text" class="addItemInput">
-            <button class="addItemButton">Add Item</button>
+            <button class="addItemButton btn">Add Item</button>
 
         </div>
         <!-- LIST DIV  -->
@@ -174,15 +185,15 @@
 
         function attachListItemButton(li) {
             let up = document.createElement('button');
-            up.className = 'up';
+            up.className = 'up btn';
             up.textContent = 'Up';
             li.appendChild(up);
             let down = document.createElement('button');
-            down.className = 'down';
+            down.className = 'down btn';
             down.textContent = 'Down';
             li.appendChild(down);
             let remove = document.createElement('button');
-            remove.className = 'remove';
+            remove.className = 'remove btn';
             remove.textContent = 'X';
             li.appendChild(remove);
 
