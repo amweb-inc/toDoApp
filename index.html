@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title class="description">My List</title>
+
+    <!-- STYLE -->
+    <style>
+        * {
+            font-family: 'Comic Sans MS', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* background: #f36f49; */
+            background: #DF00FF;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0;
+        }
+
+        h1,
+        .description {
+            color: #57D6AB;
+            font-family: 'chalkduster';
+            text-align: center;
+            text-shadow: 5px 10px 28px #57D6AB;
+
+        }
+
+        p.description {
+            color: #DF00FF;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 11px;
+        }
+
+        li button {
+            padding: 11px;
+            margin: 10px 0 10px 10px;
+            text-align: center;
+        }
+
+        button.up {
+            background: #DF73FF;
+            font-weight: bolder;
+            border-radius: 40px;
+            box-shadow: 5px 5px 28px 10px #888888;
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+
+        button.down {
+
+            font-weight: bolder;
+            border-radius: 40px;
+            box-shadow: 5px 5px 28px 10px #888888;
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            box-shadow: 5px 5px 28px 10px #888888;
+            border-radius: 10%;
+            background: #04c5e6;
+
+        }
+
+        button.remove {
+            background: #04c5e6;
+            font-weight: bolder;
+            border: none;
+            border-radius: 40px;
+            box-shadow: 5px 5px 28px 10px #888888;
+            margin-right: 5px;
+            margin-left: 10px;
+            width: 15px;
+            height: 15px;
+            font-size: 2em;
+            text-align: left;
+        }
+
+        .hide,
+        button.description {
+            border-radius: 40px;
+            color: #57D6AB;
+            font-weight: bolder;
+            background: #DF00FF;
+            box-shadow: 5px 5px 28px 10px #888888;
+            margin-right: 5px;
+
+        }
+
+        .addItemInput,
+        .addItemButton {
+            border-radius: 40px;
+            background: #4FC978;
+            margin-bottom: 9px;
+            margin-left: 8px;
+        }
+
+        .addItemButton {
+            font-size: 1.3em;
+            color: #DF00FF;
+        }
+
+        button:focus,
+        input:focus {
+            outline: none;
+        }
+
+        input.description,
+        input.addItemInput {
+            border-radius: 50px;
+            color: black;
+            padding: 0;
+            margin-right: 10px;
+            margin-left: 10px;
+            background: #b7c7d0;
+        }
+    </style>
+    <!-- STYLE -->
+</head>
+
+<body>
+    <header>
+        <h1 class="description">MY LIST</h1>
+    </header>
+    <div class="wrapper">
+        <button id="toggleList" class="hide">Hide</button>
+        <!-- look into on load event to have description load as hide. -->
+
+        <!-- LIST DIV -->
+        <div class="list">
+            <p class="description">MY LIST</p>
+            <input type="text" class="description" for="changeDesc">
+            <button class="description" id="changeDesc">Change Description</button>
+            <ul>
+                <li>My Item #1</li>
+                <li>My Item #2</li>
+                <li>My Item #3</li>
+
+            </ul>
+            <input type="text" class="addItemInput">
+            <button class="addItemButton">Add Item</button>
+
+        </div>
+        <!-- LIST DIV  -->
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+
+
+        const toggleList = document.getElementById('toggleList');
+        const listDiv = document.querySelector('.list');
+        const descriptionInput = document.querySelector('input.description');
+        const descriptionP = document.querySelector('p.description');
+        const descriptionButton = document.querySelector('button.description');
+        const descriptionTitle = document.querySelector('title.description');
+        const descriptionHeading = document.querySelector('h1.description');
+        const listUl = listDiv.querySelector('ul');
+        const addItemInput = document.querySelector('input.addItemInput');
+        const addItemButton = document.querySelector('button.addItemButton');
+        const lis = listUl.children;
+
+
+        function attachListItemButton(li) {
+            let up = document.createElement('button');
+            up.className = 'up';
+            up.textContent = 'Up';
+            li.appendChild(up);
+            let down = document.createElement('button');
+            down.className = 'down';
+            down.textContent = 'Down';
+            li.appendChild(down);
+            let remove = document.createElement('button');
+            remove.className = 'remove';
+            remove.textContent = 'X';
+            li.appendChild(remove);
+
+        }
+        //Adds buttons to example items
+        for (let i = 0; i < lis.length; i += 1) {
+            attachListItemButton(lis[i]);
+        }
+        //Remove Items and move up and down
+        listUl.addEventListener('click', (event) => {
+            if (event.target.tagName == 'BUTTON') {
+                if (event.target.className == 'remove') {
+                    let li = event.target.parentNode;
+                    let ul = li.parentNode;
+                    ul.removeChild(li);
+                }
+                if (event.target.className == 'up') {
+                    let li = event.target.parentNode;
+                    let prevLi = li.previousElementSibling;
+                    let ul = li.parentNode;
+                    if (prevLi) {
+                        ul.insertBefore(li, prevLi);
+                    }
+                }
+                if (event.target.className == 'down') {
+                    let li = event.target.parentNode;
+                    let nextLi = li.nextElementSibling;
+                    let ul = li.parentNode;
+                    if (nextLi) {
+                        ul.insertBefore(nextLi, li);
+                    }
+                }
+
+            }
+        });
+
+
+
+
+
+        //Toggles list on and off.
+        toggleList.addEventListener('click', () => {
+            if (listDiv.style.display == 'none') {
+                toggleList.textContent = 'Hide';
+                listDiv.style.display = 'block';
+            } else {
+                toggleList.textContent = 'Show';
+                listDiv.style.display = 'none';
+            }
+        });
+
+        //Change Description of List.
+        descriptionButton.addEventListener('click', () => {
+
+            if (descriptionInput.value.length == 0) {
+                console.log('Please enter a description');
+                // need to continue to check after first check. issue#1 Block blank user input.
+            } else {
+                descriptionP.innerHTML = descriptionInput.value.toUpperCase() + ':';
+                descriptionTitle.innerHTML = descriptionInput.value.toUpperCase() + ':';
+                descriptionHeading.innerHTML = descriptionInput.value.toUpperCase() + ':';
+                descriptionInput.value = ' ';
+
+            }
+        });
+
+        addItemButton.addEventListener('click', () => {
+            emptyEntry = document.querySelector('input.addItemInput').value;
+            if (emptyEntry == 0) {
+                console.log('Please Enter an Item');
+            } else {
+                let ul = document.getElementsByTagName('ul')[0];
+                let li = document.createElement('li');
+                li.textContent = addItemInput.value;
+                attachListItemButton(li);
+                ul.appendChild(li);
+                addItemInput.value = '';
+
+            }
+
+        });
+
+
+    </script>
+</body>
+
+</html>
