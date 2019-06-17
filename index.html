@@ -10,12 +10,12 @@
     <!-- STYLE -->
     <style>
         * {
-            font-family: 'Comic Sans MS', sans-serif;
+            font-family: "Frutiger Neue W02 Thin", Arial, Helvetica, sans-serif;
             box-sizing: border-box;
         }
 
         body {
-            /* background: #f36f49; */
+
             background: #772987;
             display: flex;
             flex-direction: column;
@@ -25,12 +25,50 @@
 
         .wrapper {
             margin: 0 auto;
-            box-shadow: 5px 5px 28px 10px #e9dfdf;
+            box-shadow: 5px 5px 28px #928c8c;
             border-top-right-radius: 10%;
             border-top-left-radius: 10%;
-            background: #8f8591;
+            background: #57D6AB;
 
         }
+
+        /* Buttons */
+
+        .hide {
+            border-radius: 40px;
+            color: #57D6AB;
+            background: #DF00FF;
+            box-shadow: 5px 5px 28px 10px #888888;
+            margin-right: 5px;
+
+        }
+
+        .btn {
+            cursor: pointer;
+            font-size: .875em;
+            text-transform: uppercase;
+            color: #772987;
+            margin-right: 10px;
+        }
+
+        .up,
+        .down {
+            cursor: pointer;
+            font-size: .875em;
+            text-transform: uppercase;
+            color: #772987;
+            margin-left: 10px;
+        }
+
+        button:focus,
+        input:focus {
+            outline: none;
+        }
+
+        .btn:hover {
+            opacity: .75;
+        }
+
 
         input[type="text"] {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -49,97 +87,32 @@
 
 
         h1,
-        .description {
-            color: #57D6AB;
+        p.description {
+            color: #d4d3d6;
             font-family: 'chalkduster';
             text-align: center;
-            text-shadow: 5px 10px 28px #57D6AB;
+            text-shadow: 5px 2px 8px rgb(13, 14, 13);
 
         }
 
-        p.description {
-            color: #DF00FF;
-        }
 
         ul {
             list-style-type: none;
-            padding: 11px;
+            padding: 5px;
+            margin: 10px;
         }
 
-        li button {
-            padding: 11px;
-            margin: 10px 0 10px 10px;
-            text-align: center;
-        }
 
-        button.up {
-            background: #DF73FF;
-            font-weight: bolder;
-            border-radius: 40px;
-            box-shadow: 5px 5px 28px 10px #888888;
-            margin-right: 5px;
-            margin-left: 10px;
-        }
-
-        button.down {
-
-            font-weight: bolder;
-            border-radius: 40px;
-            box-shadow: 5px 5px 28px 10px #888888;
-            margin-right: 5px;
-            margin-left: 10px;
-        }
 
 
 
         button.remove {
-            background: #04c5e6;
-            font-weight: bolder;
-            border: none;
+            background: red;
             border-radius: 40px;
-            box-shadow: 5px 5px 28px 10px #888888;
-            margin-right: 5px;
+            box-shadow: 5px 15px 20px #fff;
             margin-left: 10px;
             width: 15px;
             height: 15px;
-            font-size: 2em;
-            text-align: left;
-        }
-
-        .hide,
-        button.description {
-            border-radius: 40px;
-            color: #57D6AB;
-            font-weight: bolder;
-            background: #DF00FF;
-            box-shadow: 5px 5px 28px 10px #888888;
-            margin-right: 5px;
-
-        }
-
-
-
-        .addItemButton {
-            font-size: 1.3em;
-            color: #DF00FF;
-        }
-
-        button:focus,
-        input:focus {
-            outline: none;
-        }
-
-
-
-        .btn {
-            cursor: pointer;
-            font-size: .875em;
-            text-transform: uppercase;
-
-        }
-
-        btn:hover {
-            opacity: .75;
         }
     </style>
     <!-- STYLE -->
@@ -147,7 +120,7 @@
 
 <body>
     <header>
-        <h1 class="description">MY LIST</h1>
+        <h1 class="description">MY LIST </h1>
     </header>
     <div class="wrapper">
         <button id="toggleList" class="hide btn">Hide</button>
@@ -198,8 +171,9 @@
             down.textContent = 'Down';
             li.appendChild(down);
             let remove = document.createElement('button');
+
             remove.className = 'remove';
-            remove.textContent = 'X';
+
             li.appendChild(remove);
 
         }
@@ -254,7 +228,9 @@
         descriptionButton.addEventListener('click', () => {
 
             if (descriptionInput.value.length == 0) {
-                console.log('Please enter a description');
+                // console.log('Please enter a description');
+                alert("Please enter a description");
+                return;
                 // need to continue to check after first check. issue#1 Block blank user input.
             } else {
                 descriptionP.innerHTML = descriptionInput.value.toUpperCase() + ':';
@@ -268,7 +244,9 @@
         addItemButton.addEventListener('click', () => {
             emptyEntry = document.querySelector('input.addItemInput').value;
             if (emptyEntry == 0) {
-                console.log('Please Enter an Item');
+                // console.log('Please Enter an Item');
+                alert("Please enter an item");
+                return;
             } else {
                 let ul = document.getElementsByTagName('ul')[0];
                 let li = document.createElement('li');
