@@ -9,148 +9,46 @@
   </head>
 
   <body>
-    <!-- !Header -->
-    <header>
+    <!-- **** Header **** -->
+    <header tabindex="1">
       <h1 class="descriptionHeader">MY LIST</h1>
     </header>
-    <!-- !/Header -->
+    <!-- */Header -->
 
-    <!-- !Hide/show button -->
-    <button id="toggleList" class="hideBtn btn">Hide/Show</button>
-    <!-- ! /Hide/show button -->
+    <!-- **** Togglebutton **** -->
+    <button id="toggleList" class="centerBtn btn">Hide/Show</button>
+    <!-- * /Toggle button -->
 
-    <!-- !-----------------------Container-->
+    <!-- **** Description Div **** -->
+    <input
+      type="text"
+      class="descriptionInput centerBtn rounded"
+      for="changeDesc"
+    />
+    <button class="descriptionBtn btn centerBtn" id="changeDesc">
+      Change Description
+    </button>
+    <!-- */Description Div -->
+
+    <!-- *-----------------------Container-->
     <div class="container">
-      <!-- look into on load event to have description load as hide. -->
-
-      <!-- *List DIV -->
+      <!-- **** List DIV -->
       <div class="list">
-        <p class="descriptionTitle">MY LIST</p>
-        <input type="text" class="descriptionInput" for="changeDesc" />
-        <button class="descriptionBtn btn" id="changeDesc">
-          Change Description
-        </button>
-        <ul>
-          <li class="list-group-item">My Item #1</li>
+        <ul id="mainList">
+          <li>My Item #1</li>
           <li>My Item #2</li>
           <li>My Item #3</li>
         </ul>
-        <input type="text" class="addItemInput" />
-        <button class="addItemButton btn">Add Item</button>
       </div>
+      <!-- **** User Add items  input  -->
+      <input type="text" class="addItemInput rounded" />
+      <button class="addItemButton btn">Add Item</button>
       <!-- */List -->
     </div>
-    <!-- !-----------------------/Container-->
+    <!-- *-----------------------/Container-->
 
-    <!-- ! ----- Scripts ------ -->
+    <!-- * ----- Scripts ------ -->
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/app.js"></script>
-    <!-- 
-
-    <script>
-      const toggleList = document.getElementById("toggleList");
-      const listDiv = document.querySelector(".list");
-      const descriptionInput = document.querySelector("input.description");
-      const descriptionP = document.querySelector("p.description");
-      const descriptionButton = document.querySelector("button.description");
-      const descriptionTitle = document.querySelector("title.description");
-      const descriptionHeading = document.querySelector("h1.description");
-      const listUl = listDiv.querySelector("ul");
-      const addItemInput = document.querySelector("input.addItemInput");
-      const addItemButton = document.querySelector("button.addItemButton");
-      const lis = listUl.children;
-
-      function attachListItemButton(li) {
-        let up = document.createElement("button");
-        up.className = "up";
-        up.textContent = "Up";
-        li.appendChild(up);
-        let down = document.createElement("button");
-        down.className = "down";
-        down.textContent = "Down";
-        li.appendChild(down);
-        let remove = document.createElement("button");
-
-        remove.className = "remove";
-
-        li.appendChild(remove);
-      }
-      //Adds buttons to example items
-      for (let i = 0; i < lis.length; i += 1) {
-        attachListItemButton(lis[i]);
-      }
-      //Remove Items and move up and down
-      listUl.addEventListener("click", event => {
-        if (event.target.tagName == "BUTTON") {
-          if (event.target.className == "remove") {
-            let li = event.target.parentNode;
-            let ul = li.parentNode;
-            ul.removeChild(li);
-          }
-          if (event.target.className == "up") {
-            let li = event.target.parentNode;
-            let prevLi = li.previousElementSibling;
-            let ul = li.parentNode;
-            if (prevLi) {
-              ul.insertBefore(li, prevLi);
-            }
-          }
-          if (event.target.className == "down") {
-            let li = event.target.parentNode;
-            let nextLi = li.nextElementSibling;
-            let ul = li.parentNode;
-            if (nextLi) {
-              ul.insertBefore(nextLi, li);
-            }
-          }
-        }
-      });
-
-      //Toggles list on and off.
-      toggleList.addEventListener("click", () => {
-        if (listDiv.style.display == "none") {
-          toggleList.textContent = "Hide";
-          listDiv.style.display = "block";
-        } else {
-          toggleList.textContent = "Show";
-          listDiv.style.display = "none";
-        }
-      });
-
-      //Change Description of List.
-      descriptionButton.addEventListener("click", () => {
-        if (descriptionInput.value.length == 0) {
-          // console.log('Please enter a description');
-          alert("Please enter a description");
-          return;
-          // need to continue to check after first check. issue#1 Block blank user input.
-        } else {
-          descriptionP.innerHTML = descriptionInput.value.toUpperCase() + ":";
-          descriptionTitle.innerHTML =
-            descriptionInput.value.toUpperCase() + ":";
-          descriptionHeading.innerHTML =
-            descriptionInput.value.toUpperCase() + ":";
-          descriptionInput.value = " ";
-        }
-      });
-
-      addItemButton.addEventListener("click", () => {
-        emptyEntry = document.querySelector("input.addItemInput").value;
-        if (emptyEntry == 0) {
-          // console.log('Please Enter an Item');
-          alert("Please enter an item");
-          return;
-        } else {
-          let ul = document.getElementsByTagName("ul")[0];
-          let li = document.createElement("li");
-
-          li.textContent = addItemInput.value;
-          attachListItemButton(li);
-          ul.appendChild(li);
-          addItemInput.value = "";
-        }
-      });
-    </script> -->
-    <!-- ! --- /Scripts -->
   </body>
 </html>

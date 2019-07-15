@@ -11,15 +11,29 @@ li {
   list-style-type: none;
 }
 
-/* !Classes */
+/* *Classes */
+.descriptionHeader {
+  text-align: center;
+}
+.rounded {
+  border-radius: 0.3rem;
+}
+
 .btn {
   border: 1px solid #d4d4d4;
   background-color: #ff00ff;
   padding: 0.375rem 0.75rem;
   border-radius: 0.25rem;
 }
-.hideBtn {
+.centerBtn {
   margin: 0 auto;
+}
+/* ?Description Button */
+.descriptionBtn {
+  margin-top: 0.375rem;
+}
+.descriptionInput {
+  margin-top: 1rem;
 }
 .container {
   margin: 0 auto;
@@ -28,7 +42,7 @@ li {
   position: relative;
   display: block;
   padding: 0.75rem 1.25rem;
-  margin-bottom: -1px;
-  background-color: #dda0dd;
+  margin-bottom: 1rem;
+  background-color: #d4d4d4;
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
