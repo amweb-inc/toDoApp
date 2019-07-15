@@ -1,8 +1,10 @@
 body {
   display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   flex-direction: column;
   background: #550055;
   color: #ffecdb;
+  font-weight: 400;
 }
 li {
   color: #708090;
@@ -10,6 +12,15 @@ li {
 }
 
 /* !Classes */
+.btn {
+  border: 1px solid #d4d4d4;
+  background-color: #ff00ff;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+}
+.hideBtn {
+  margin: 0 auto;
+}
 .container {
   margin: 0 auto;
 }

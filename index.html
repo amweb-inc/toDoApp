@@ -11,20 +11,23 @@
   <body>
     <!-- !Header -->
     <header>
-      <h1 class="description">MY LIST</h1>
+      <h1 class="descriptionHeader">MY LIST</h1>
     </header>
     <!-- !/Header -->
 
+    <!-- !Hide/show button -->
+    <button id="toggleList" class="hideBtn btn">Hide/Show</button>
+    <!-- ! /Hide/show button -->
+
     <!-- !-----------------------Container-->
     <div class="container">
-      <button id="toggleList" class="hide btn">Hide</button>
       <!-- look into on load event to have description load as hide. -->
 
       <!-- *List DIV -->
       <div class="list">
-        <p class="description">MY LIST</p>
-        <input type="text" class="description" for="changeDesc" />
-        <button class="description btn" id="changeDesc">
+        <p class="descriptionTitle">MY LIST</p>
+        <input type="text" class="descriptionInput" for="changeDesc" />
+        <button class="descriptionBtn btn" id="changeDesc">
           Change Description
         </button>
         <ul>
@@ -40,7 +43,9 @@
     <!-- !-----------------------/Container-->
 
     <!-- ! ----- Scripts ------ -->
-    <!-- <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/app.js"></script>
+    <!-- 
 
     <script>
       const toggleList = document.getElementById("toggleList");
