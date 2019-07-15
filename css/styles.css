@@ -1,4 +1,23 @@
 body {
-    background: #550055;
-    color: #ffecdb;
+  display: flex;
+  flex-direction: column;
+  background: #550055;
+  color: #ffecdb;
+}
+li {
+  color: #708090;
+  list-style-type: none;
+}
+
+/* !Classes */
+.container {
+  margin: 0 auto;
+}
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: -1px;
+  background-color: #dda0dd;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
