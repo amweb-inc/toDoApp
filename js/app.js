@@ -17,15 +17,21 @@ $("#changeDesc").click(function() {
   }
 });
 
-// ** Target list and set new items
+// ** Target ul and set new li
+
 $(".addItemButton").click(function() {
-  //gets html var
-  let listHTML = $(".list ul").append(
-    "<li>" + $(".addItemInput").val() + "</li>"
-  );
-
-  //sets
-  $(".list").append(listHTML);
-
-  $("#mainList li").addClass("list-group-item");
+  var addInput = $(".addItemInput").val();
+  //if input blank
+  if (addInput.length == 0) {
+    alert("input was empty");
+  } else {
+    // li html var
+    let listHTML = $(".list ul").append(
+      "<li>" + addInput + "<button>" + "Remove" + "</button>" + "</li>"
+    );
+    //sets
+    $(".list").append(listHTML);
+  }
 });
+
+// ** Removes li items
