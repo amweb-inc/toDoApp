@@ -27,11 +27,28 @@ $(".addItemButton").click(function() {
   } else {
     // li html var
     let listHTML = $(".list ul").append(
-      "<li>" + addInput + "<button>" + "Remove" + "</button>" + "</li>"
+      "<li class='userItem'>" + addInput + "</li>"
     );
     //sets
     $(".list").append(listHTML);
   }
 });
 
-// ** Removes li items
+// ** Removes li items on doubleclick
+$(document).on("dblclick", "li", function() {
+  $(this).fadeOut("slow");
+});
+
+// $("#mainList li").each(function remove() {
+//   if ($("#mainList").length <= 0) {
+//     console.log("nothing to remove");
+//   } else {
+//     $(".removeItem").click(function() {
+//       $("#mainList li")
+//         .first()
+//         .fadeOut();
+//     });
+//   }
+
+//   //   $(listItem).fadeOut();
+// });
